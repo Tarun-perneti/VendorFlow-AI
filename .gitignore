@@ -1,0 +1,25 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Database (auto-created at runtime)
+data/*.db
+
+# Uploads (temporary files)
+uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit secrets (local only — use Streamlit Cloud secrets UI)
+.streamlit/secrets.toml
