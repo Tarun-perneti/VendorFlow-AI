@@ -126,9 +126,13 @@ IMPORTANT RULES:
         "Never fabricate data. Return only valid JSON."
     )
 
-    result = extract_json_from_llm(prompt, system_instruction)
-    if result is None:
-        return None
+   result = extract_json_from_llm(prompt, system_instruction)
+
+if result is None:
+    print(f"[Document] Gemini extraction failed for {filename}. Using fallback.")
+    return None
+
+print(f"[Document] Gemini extraction successful for {filename}")
 
     return ExtractedDocInfo(
         source_file=filename,
