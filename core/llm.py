@@ -79,10 +79,11 @@ def ask_llm(prompt: str, system_instruction: str = "") -> str | None:
             config["system_instruction"] = system_instruction
 
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+           model="gemini-3.8-flash",
             contents=prompt,
             config=config if config else None,
         )
+        print("[LLM] Gemini API call successful")
 
         if response and response.text:
             return response.text.strip()
@@ -127,4 +128,8 @@ def extract_json_from_llm(prompt: str, system_instruction: str = "") -> dict | N
         print(f"[LLM] Failed to parse JSON from response: {e}")
         print(f"[LLM] Raw response was: {response[:500]}")
         return None
+    if __name__ == "__main__":
+        result = ask_llm("Reply with exactly: Gemini is working")
+        print("Gemini test result:", result)
+    
 
